@@ -40,23 +40,22 @@ $(function() {
          });
 
          it('has one entry', function() {
-            var numberEntries = $('.entry')[0];
+            var numberEntries = $('.feed')[0];
             expect(numberEntries).toBeGreaterThan('');
          });
 	});
 
   describe('New Feed Selection', function() { //suite when loaded the content changes
 
-        var oldURL, newURL;
+        var oldURL;
 
         beforeEach(function(done) {
-          oldURL = $('.entry-link').attr('href');
+          oldURL = $('.feed').html();
           loadFeed(1, done);
         });
 
         it('loading new content', function(done) {
-          newURL = $('.entry-link').attr('href'); //checks URL against previous feed
-          expect(newURL).not.toBe(oldURL);
+          expect('.feed').not.toBe(oldURL);
           done();
         });
   });
