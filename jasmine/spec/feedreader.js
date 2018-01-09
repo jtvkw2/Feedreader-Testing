@@ -40,15 +40,14 @@ $(function() {
          });
 
          it('has one entry', function() {
-            var numberEntries = $('.entry').length;
-            expect(numberEntries).toBeGreaterThan(0);
+            var numberEntries = $('.entry')[0];
+            expect(numberEntries).toBeGreaterThan('');
          });
 	});
 
   describe('New Feed Selection', function() { //suite when loaded the content changes
 
-        var oldURL;
-        var newURL;
+        var oldURL, newURL;
 
         beforeEach(function(done) {
           oldURL = $('.entry-link').attr('href');
