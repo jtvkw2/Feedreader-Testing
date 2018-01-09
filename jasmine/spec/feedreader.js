@@ -1,30 +1,17 @@
-/* feedreader.js
- *
- * This is the spec file that Jasmine will read and contains
- * all of the tests that will be run against your application.
- */
-
-/* We're placing all of our tests within the $() function,
- * since some of these tests may require DOM elements. We want
- * to ensure they don't run until the DOM is ready.
- */
 $(function() {
-    /* This is our first test suite - a test suite just contains
-    * a related set of tests. This suite is all about the RSS
-    * feeds definitions, the allFeeds variable in our application.
-    */
-    describe('RSS Feeds', function() {
-        it('are defined', function() {
+
+    describe('RSS Feeds', function() { //suite to check if feeds meet critera
+        it('are defined', function() { // spec to check if i have feeds at all
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
         });
-        it('has url', function() {
+        it('has url', function() { // spec to make sure all feeds have url
           allFeeds.forEach(function(page) {
             expect(page.url).toBeDefined();
             expect(page.length).not.toBe(0);
           });
         });
-        it('has name', function() {
+        it('has name', function() { //spec to make sure all feeds have a name
           allFeeds.forEach(function(page) {
             expect(page.name).toBeDefined();
             expect(page.length).not.toBe(0);
@@ -32,18 +19,19 @@ $(function() {
         });
     });
 
-    describe('The menu', function() {
-         it('hidden menu', function() {
+    describe('The menu', function() { // suite that checks all states of the menu
+         it('hidden menu', function() { // initially expects menu to be hidden
              expect($('body').hasClass('menu-hidden')).toBe(true);
          });
-          it('visible menu', function() {
-            $('.menu-icon-link').click();
+          it('visible menu', function() { //spec to change state of menu
+            $('.menu-icon-link').click(); //makes menu visible
             expect($('body').hasClass('menu-hidden')).toBe(false);
             $('.menu-icon-link').click();
             expect($('body').hasClass('menu-hidden')).toBe(true);
           });
         });
 
+//suite when loaded there needs to be at least a single entry
     describe('Initial Entries', function() {
          beforeEach(function(done) {
             loadFeed(0, function() {
@@ -57,7 +45,7 @@ $(function() {
          });
 	});
 
-  describe('New Feed Selection', function() {
+  describe('New Feed Selection', function() { //suite when loaded the content changes
 
         var oldURL;
         var newURL;
@@ -68,7 +56,7 @@ $(function() {
         });
 
         it('loading new content', function(done) {
-          newURL = $('.entry-link').attr('href');
+          newURL = $('.entry-link').attr('href'); //checks URL against previous feed
           expect(newURL).not.toBe(oldURL);
           done();
         });
