@@ -4,8 +4,8 @@ This is a basic feed reader with different types of articles, it uses Jasmine fo
 
 ## How to Use
 
-- Clone the **[repo](https://github.com/jtvkw2/Bug_Boy_in_Water_World)** and open index.html -- or --
-- Play on GitHub.io: **[Bug Boy in Water World](https://jtvkw2.github.io/Bug_Boy_in_Water_World/)**
+- Clone the **[repo](https://github.com/jtvkw2/Feedreader-Testing)** and open index.html -- or --
+- Play on GitHub.io: **[Feed Reader](https://jtvkw2.github.io/Feedreader-Testing/)**
 
 ### Installing
 
