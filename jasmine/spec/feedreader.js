@@ -40,22 +40,25 @@ $(function() {
          });
 
          it('has one entry', function() {
-            var numberEntries = $('.feed')[0];
-            expect(numberEntries).toBeGreaterThan('');
+            var numberEntries = $('.entry');
+            expect(numberEntries.length).not.toBe(0);
          });
 	});
 
   describe('New Feed Selection', function() { //suite when loaded the content changes
 
-        var oldURL;
+        var oldURL, newURL;
 
         beforeEach(function(done) {
-          oldURL = $('.feed').html();
-          loadFeed(1, done);
+          loadFeed(0,function(){
+            oldURL = $('.feed').html();
+            loadFeed(1, done);
+          });
         });
 
         it('loading new content', function(done) {
-          expect('.feed').not.toBe(oldURL);
+          newURL = $('.feed').html();
+          expect(newURL).not.toBe(oldURL);
           done();
         });
   });
